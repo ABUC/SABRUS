@@ -1,0 +1,4 @@
+offline:
+    resource: "@OfflineBundle/Resources/config/routing.yml"
+    prefix:   /
+

@@ -1,0 +1,20 @@
+/*Sabrus Offline Font families*/
+@font-face {
+    font-family: 'Yanone Kaffeesatz Bold';
+    src: url('../fonts/Yanone%20Kaffeesatz%20Bold.otf');
+}
+
+@font-face {
+    font-family: 'Yanone Kaffeesatz Light';
+    src: url('../fonts/Yanone%20Kaffeesatz%20Light.otf');
+}
+
+@font-face {
+    font-family: 'Yanone Kaffeesatz Regular';
+    src: url('../fonts/Yanone%20Kaffeesatz%20Regular.otf');
+}
+
+@font-face {
+    font-family: 'Yanone Kaffeesatz Thin';
+    src: url('../fonts/Yanone%20Kaffeesatz%20Thin.otf');
+}

@@ -1,0 +1,20 @@
+# This file is auto-generated during the composer install
+parameters:
+    database_driver: pdo_mysql
+    database_host: 127.0.0.1
+    database_port:
+    database_name: sabrus
+    database_user: root
+    database_password:
+    mailer_transport: smtp
+    mailer_host: smtp.uci.cu
+    mailer_port: 25
+    mailer_encryption: tls
+    mailer_auth_mode: login
+    mailer_user: aygonzalez@uci.cu
+    mailer_password: ab.com12
+    locale: en
+    secret: ThisTokenIsNotSoSecretChangeIt
+    debug_toolbar: true
+    debug_redirects: false
+    use_assetic_controller: true
