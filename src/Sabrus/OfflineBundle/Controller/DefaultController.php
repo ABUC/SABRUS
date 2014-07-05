@@ -20,40 +20,40 @@ class DefaultController extends Controller
 
     public function getUserFeedbackAction()
     {
-        $request = Request::createFromGlobals();
-        $this->userFrom = $request->get('where-you-from-input');
-        return $this->redirect($this->generateurl('offline_homepage'));
+//        $request = Request::createFromGlobals();
+//        $this->userFrom = $request->get('where-you-from-input');
+        return $this->render('OfflineBundle:Default:index.html.twig', array('msg' => 'Offline', 'info' => ""));
     }
 
     public function sendUserFeedbackAction()
     {
-        $request = Request::createFromGlobals();
-        $this->userFrom = $request->get('user_from_hidden');
-
-        die(var_dump($request->get('user_from_hidden')));
-
-        $username = $request->get('username');
-        $email = $request->get('email');
-
-        $userfeedback = new UserFeedback();
-        $userfeedback->setName($username);
-        $userfeedback->setEmail($email);
-        $userfeedback->setCountry($this->userFrom);
-        $userfeedback->setMiles('blah blah blah');
-
-        $em = $this->getDoctrine()->getManager();
-        $em->getRepository('OfflineBundle:UserFeedBack')
-            ->AddUserFeedBack($userfeedback);
-
-        /*
-        $message = \Swift_Message::newInstance()
-            ->setSubject('You have a new message from '.$username)
-            ->setFrom('aygonzalez@uci.cu')
-            ->setTo('aygonzalez@uci.cu')
-            ->setBody('This is the body of the message...');
-
-        $info = $this->get('mailer')->send($message);
-        */
+//        $request = Request::createFromGlobals();
+//        $this->userFrom = $request->get('user_from_hidden');
+//
+//        die(var_dump($request->get('user_from_hidden')));
+//
+//        $username = $request->get('username');
+//        $email = $request->get('email');
+//
+//        $userfeedback = new UserFeedback();
+//        $userfeedback->setName($username);
+//        $userfeedback->setEmail($email);
+//        $userfeedback->setCountry($this->userFrom);
+//        $userfeedback->setMiles('blah blah blah');
+//
+//        $em = $this->getDoctrine()->getManager();
+//        $em->getRepository('OfflineBundle:UserFeedBack')
+//            ->AddUserFeedBack($userfeedback);
+//
+//        /*
+//        $message = \Swift_Message::newInstance()
+//            ->setSubject('You have a new message from '.$username)
+//            ->setFrom('aygonzalez@uci.cu')
+//            ->setTo('aygonzalez@uci.cu')
+//            ->setBody('This is the body of the message...');
+//
+//        $info = $this->get('mailer')->send($message);
+//        */
         return $this->render('OfflineBundle:Default:index.html.twig', array('msg' => 'Offline', 'info' => ""));
     }
 }
