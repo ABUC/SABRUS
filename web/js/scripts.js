@@ -8,9 +8,12 @@
  * Created by Yasmany on 6/24/14.
  */
 
-var scroll_amount_from = 0;
-var scroll_amount_mile = 0;
-const offset = 26;
+
+// UserType for 'Want-to-be' purpose
+// 0 => Host
+// 1 => Guest
+// 2 => Host-Guest
+var user_type = 0;
 
 $(function(){
     /*  Call the scrollspy */
@@ -89,15 +92,89 @@ $(function(){
 
     $('#service-description-p').text('Host to cook description Host to cook description Host to cook description Host to cook description Host to cook description Host to cook description Host to cook description Host to cook description Host to cook description Host to cook description Host to cook description Host to cook description Host to cook description Host to cook description Host to cook description Host to cook description');
 
+    /*  Add or Remove 'selected' class in want-to-be images */
+    $('#host').click(function(){
+        $('#host').addClass('selected');
+        $('#guest').removeClass('selected');
+        $('#host-guest').removeClass('selected');
 
-    var userFrom = "";
+        user_type = 0;
+    });
+
+    $('#guest').click(function(){
+        $('#host').removeClass('selected');
+        $('#guest').addClass('selected');
+        $('#host-guest').removeClass('selected');
+
+        user_type = 1;
+    });
+
+    $('#host-guest').click(function(){
+        $('#host').removeClass('selected');
+        $('#guest').removeClass('selected');
+        $('#host-guest').addClass('selected');
+
+        user_type = 2;
+    });
+
+
+    /*  Post with AJAX user feedback in modal-view to DefaultController getUserFeedbackAction */
     $('#btn-save').click(function(){
 
-        $('#user_from_hidden').val($('#where-you-from-input').val());
-        $('#modal-view').modal('hide');
+        var url = $('#modal-view').attr('data-url');
+        var user_from = $('#where-you-from-input').val();
+
+        $.post(url,
+            {
+                'user_from': user_from,
+                'user_type': user_type
+            },
+            function(response) {
+                var json = jQuery.parseJSON(response);
+                if(json.code == 200){
+                    //do something
+                    $('#modal-view').modal('hide');
+                }
+            }
+        );
+    });
+
+    /*  Post with AJAX user feedback on contact-form to DefaultController sendUserFeedbackAction */
+    $('#btn-send').click(function(){
+
+        var url = $('#contact-form').attr('data-url');
+        var name = $('#inputName').val();
+        var email = $('#inputEmail').val();
+
+        $.post(url,
+            {
+                'name': name,
+                'email': email
+            },
+            function(response) {
+                var json = jQuery.parseJSON(response);
+                if(json.code == 200){
+                    //do something
+                    $('#where-you-from-input').val('');
+                    $('#inputName').val('');
+                    $('#inputEmail').val('');
+
+                    $('#host').removeClass('selected');
+                    $('#guest').removeClass('selected');
+                    $('#host-guest').removeClass('selected');
+                    alert('Thank you for your feedback. We will keep in touch with you.')
+                }
+            }
+        );
     });
 });
+
     /* Scroll down from and mile lists in Contact us Section */
+
+//var scroll_amount_from = 0;
+//var scroll_amount_mile = 0;
+//const offset = 26;
+
 //    $('#scrollup-from').click(function(){
 //
 //        if ($('#scrolldown-from').css('visibility') == 'hidden') {

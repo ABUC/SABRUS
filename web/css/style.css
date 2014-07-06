@@ -509,6 +509,10 @@ body {
     margin-right: 6%;
 }
 
+#host.selected, #guest.selected, #host-guest.selected {
+    border: solid lightskyblue 2px;
+}
+
 #want-to-be-images {
     margin: 2% auto;
 }

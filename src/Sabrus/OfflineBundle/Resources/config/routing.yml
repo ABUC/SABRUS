@@ -1,7 +1,6 @@
 offline_homepage:
     pattern:  /
     defaults: { _controller: OfflineBundle:Default:index }
-    methods:  [GET]
 
 offline_index:
     pattern:  /index
@@ -15,4 +14,3 @@ send_user_feedback:
 get_user_feedback:
     pattern: /get_feedback
     defaults: { _controller: OfflineBundle:Default:getUserFeedback}
-    methods: [POST]

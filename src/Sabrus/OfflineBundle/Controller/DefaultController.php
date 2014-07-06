@@ -3,16 +3,12 @@
 namespace Sabrus\OfflineBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\BrowserKit\Response;
+use Symfony\Component\HttpFoundation;
 use Symfony\Component\HttpFoundation\Request;
-use Sabrus\OfflineBundle\Entity\UserFeedBackRepository;
 use Sabrus\OfflineBundle\Entity\UserFeedback;
 
 class DefaultController extends Controller
 {
-    private $userFrom = ""; //Country of the user
-    private $userType = 0; //If is guest, host, or guest/host
-
     public function indexAction()
     {
         return $this->render('OfflineBundle:Default:index.html.twig', array('msg' => 'Offline', 'user_from' => ""));
@@ -20,31 +16,42 @@ class DefaultController extends Controller
 
     public function getUserFeedbackAction()
     {
-//        $request = Request::createFromGlobals();
-//        $this->userFrom = $request->get('where-you-from-input');
-        return $this->render('OfflineBundle:Default:index.html.twig', array('msg' => 'Offline', 'info' => ""));
+        $request = $this->get('request');
+        $this->get('session')->getFlashBag()->add('user_from',$request->request->get('user_from'));
+        $this->get('session')->getFlashBag()->add('user_type',$request->request->get('user_type'));
+
+        $response = array('code' => 200, 'success' => true);
+        $response = json_encode($response);
+        return new HttpFoundation\Response($response);
     }
 
     public function sendUserFeedbackAction()
     {
-//        $request = Request::createFromGlobals();
-//        $this->userFrom = $request->get('user_from_hidden');
-//
-//        die(var_dump($request->get('user_from_hidden')));
-//
-//        $username = $request->get('username');
-//        $email = $request->get('email');
-//
-//        $userfeedback = new UserFeedback();
-//        $userfeedback->setName($username);
-//        $userfeedback->setEmail($email);
-//        $userfeedback->setCountry($this->userFrom);
-//        $userfeedback->setMiles('blah blah blah');
-//
-//        $em = $this->getDoctrine()->getManager();
-//        $em->getRepository('OfflineBundle:UserFeedBack')
-//            ->AddUserFeedBack($userfeedback);
-//
+        $userFrom = $this->get('session')->getFlashBag()->get('user_from');
+        $userType = $this->get('session')->getFlashBag()->get('user_type');
+
+        $request = $this->get('request');
+
+        $username = $request->get('name');
+        $email = $request->get('email');
+
+        $userfeedback = new UserFeedback();
+        $userfeedback->setName($username);
+        $userfeedback->setEmail($email);
+        $userfeedback->setUserFrom($userFrom[0]);
+        $userfeedback->setUserType($userType[0]);
+
+        $em = $this->getDoctrine()->getManager();
+        $em->getRepository('OfflineBundle:UserFeedBack')
+            ->AddUserFeedBack($userfeedback);
+
+        /*
+        $this->get('session')->getFlashBag()->add(
+            'notice',
+            'Thank you for your feedback. We will keep in touch with you.'
+        );
+        */
+
 //        /*
 //        $message = \Swift_Message::newInstance()
 //            ->setSubject('You have a new message from '.$username)
@@ -54,6 +61,8 @@ class DefaultController extends Controller
 //
 //        $info = $this->get('mailer')->send($message);
 //        */
-        return $this->render('OfflineBundle:Default:index.html.twig', array('msg' => 'Offline', 'info' => ""));
+        $response = array('code' => 200, 'success' => true);
+        $response = json_encode($response);
+        return new HttpFoundation\Response($response);
     }
 }

@@ -26,30 +26,28 @@ class UserFeedback
      *
      * @ORM\Column(name="name", type="string", length=50, nullable=false)
      */
-    private $name = 'default_name';
+    private $name;
 
     /**
      * @var string
      *
      * @ORM\Column(name="email", type="string", length=50, nullable=false)
      */
-    private $email = 'default_email';
+    private $email;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="country", type="string", length=50, nullable=false)
+     * @ORM\Column(name="user_from", type="string", length=50, nullable=true)
      */
-    private $country = 'default_country';
+    private $user_from;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="miles", type="string", length=5000, nullable=false)
+     * @ORM\Column(name="user_type", type="integer", nullable=true)
      */
-    private $miles = 'default_mile';
-
-
+    private $user_type = 0;
 
     /**
      * Get id
@@ -108,48 +106,48 @@ class UserFeedback
     }
 
     /**
-     * Set country
+     * Set user_from
      *
-     * @param string $country
+     * @param string $userFrom
      * @return UserFeedback
      */
-    public function setCountry($country)
+    public function setUserFrom($userFrom)
     {
-        $this->country = $country;
+        $this->user_from = $userFrom;
 
         return $this;
     }
 
     /**
-     * Get country
+     * Get user_from
      *
      * @return string 
      */
-    public function getCountry()
+    public function getUserFrom()
     {
-        return $this->country;
+        return $this->user_from;
     }
 
     /**
-     * Set miles
+     * Set user_type
      *
-     * @param string $miles
+     * @param integer $userType
      * @return UserFeedback
      */
-    public function setMiles($miles)
+    public function setUserType($userType)
     {
-        $this->miles = $miles;
+        $this->user_type = $userType;
 
         return $this;
     }
 
     /**
-     * Get miles
+     * Get user_type
      *
-     * @return string 
+     * @return integer 
      */
-    public function getMiles()
+    public function getUserType()
     {
-        return $this->miles;
+        return $this->user_type;
     }
 }
