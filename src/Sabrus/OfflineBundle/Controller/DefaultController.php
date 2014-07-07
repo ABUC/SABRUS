@@ -3,7 +3,7 @@
 namespace Sabrus\OfflineBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Sabrus\OfflineBundle\Entity\UserFeedback;
 
@@ -20,9 +20,7 @@ class DefaultController extends Controller
         $this->get('session')->getFlashBag()->add('user_from',$request->request->get('user_from'));
         $this->get('session')->getFlashBag()->add('user_type',$request->request->get('user_type'));
 
-        $response = array('code' => 200, 'success' => true);
-        $response = json_encode($response);
-        return new HttpFoundation\Response($response);
+        return new JsonResponse(array('code' => 200, 'success' => true));
     }
 
     public function sendUserFeedbackAction()
@@ -74,8 +72,6 @@ class DefaultController extends Controller
             // ignore SwiftMailer exceptions
         }
 
-        $response = array('code' => 200, 'success' => true);
-        $response = json_encode($response);
-        return new HttpFoundation\Response($response);
+        return new JsonResponse(array('code' => 200, 'success' => true));
     }
 }
