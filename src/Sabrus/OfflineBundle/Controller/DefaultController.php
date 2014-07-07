@@ -3,6 +3,7 @@
 namespace Sabrus\OfflineBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Console\Logger\ConsoleLogger;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Sabrus\OfflineBundle\Entity\UserFeedback;
@@ -17,38 +18,21 @@ class DefaultController extends Controller
     public function getUserFeedbackAction()
     {
         $request = $this->get('request');
-        $this->get('session')->getFlashBag()->add('user_from',$request->request->get('user_from'));
-        $this->get('session')->getFlashBag()->add('user_type',$request->request->get('user_type'));
-
-        return new JsonResponse(array('code' => 200, 'success' => true));
-    }
-
-    public function sendUserFeedbackAction()
-    {
-        $userFrom = $this->get('session')->getFlashBag()->get('user_from');
-        $userType = $this->get('session')->getFlashBag()->get('user_type');
-
-        $request = $this->get('request');
-
-        $username = $request->get('name');
-        $email = $request->get('email');
+        $userFrom = $request->request->get('user_from');
+        $userType = $request->request->get('user_type');
+        $username = $request->request->get('username');
+        $email = $request->request->get('email');
 
         $userfeedback = new UserFeedback();
         $userfeedback->setName($username);
         $userfeedback->setEmail($email);
-        $userfeedback->setUserFrom($userFrom[0]);
-        $userfeedback->setUserType($userType[0]);
+        $userfeedback->setUserFrom($userFrom);
+        $userfeedback->setUserType($userType);
 
         $em = $this->getDoctrine()->getManager();
         $em->getRepository('OfflineBundle:UserFeedBack')
             ->AddUserFeedBack($userfeedback);
 
-        /*
-        $this->get('session')->getFlashBag()->add(
-            'notice',
-            'Thank you for your feedback. We will keep in touch with you.'
-        );
-        */
 
         $type = 'Guest';
         if($userType[0] == 0) {

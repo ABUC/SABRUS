@@ -133,14 +133,14 @@
             <div class="col-xs-10 text-right">
                 <div id="contact-text">
                     <span>Please, let us know some of your preferences and we will contact you as soon as Sabrus is done!</span>
-                    <span> <div data-toggle="modal" class="animated-arrow" href="#modal-view" title="Feedback form">>></div> </span>
+                    {#<span> <div data-toggle="modal" class="animated-arrow" href="#modal-view" title="Feedback form">>></div> </span>#}
                 </div>
                 <div id="contact-col">
                     <div class="hp2">Contact us</div>
-                    <div id="contact-form" class="form" role="form" data-url="{{ path('send_user_feedback') }}">
+                    <div id="contact-form" class="form" role="form">
                         <input type="text" class="form-control" id="inputName" name="username" placeholder="Name">
                         <input type="email" class="form-control" id="inputEmail" name="email" placeholder="Email">
-                        <input type="submit" id="btn-send" class="btn btn-success" value="Send">
+                        <input type="submit" id="btn-send" class="btn btn-success" value="Send" data-toggle="modal" href="#modal-view">
                         {#<p style="font-size: 14px; color: #ffffff"> {% if info > 0 %} SUCCESS {% else %} FAILURE {% endif %} sending message </p>#}
                     </div>
                 </div>

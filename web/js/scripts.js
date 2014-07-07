@@ -122,23 +122,40 @@ $(function(){
 
         var url = $('#modal-view').attr('data-url');
         var user_from = $('#where-you-from-input').val();
+        var username = $('#inputName').val();
+        var email = $('#inputEmail').val();
 
         $.post(url,
             {
                 'user_from': user_from,
-                'user_type': user_type
+                'user_type': user_type,
+                'username': username,
+                'email': email
             },
             function(response) {
-                var json = jQuery.parseJSON(response);
-                if(json.code == 200){
+                if(response.code == 200){
                     //do something
                     $('#modal-view').modal('hide');
+
+                    $('#where-you-from-input').val('');
+                    $('#inputName').val('');
+                    $('#inputEmail').val('');
+
+                    $('#host').removeClass('selected');
+                    $('#guest').removeClass('selected');
+                    $('#host-guest').removeClass('selected');
+
+                    $('#feedback-alert').css('visibility', 'visible');
+                    setInterval(function(){
+                        $('#feedback-alert').css('visibility', 'hidden');
+                    }, 3000);
                 }
             }
         );
     });
 
     /*  Post with AJAX user feedback on contact-form to DefaultController sendUserFeedbackAction */
+    /*
     $('#btn-send').click(function(){
 
         var url = $('#contact-form').attr('data-url');
@@ -170,6 +187,7 @@ $(function(){
             }
         );
     });
+    */
 });
 
     /* Scroll down from and mile lists in Contact us Section */
