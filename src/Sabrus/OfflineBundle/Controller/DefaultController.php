@@ -52,6 +52,8 @@ class DefaultController extends Controller
         );
         */
 
+//        mail("aygonzalez@uci.cu", "Testting php mail function", "This is a test...");
+
 //        /*
 //        $message = \Swift_Message::newInstance()
 //            ->setSubject('You have a new message from '.$username)

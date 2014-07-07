@@ -162,7 +162,11 @@ $(function(){
                     $('#host').removeClass('selected');
                     $('#guest').removeClass('selected');
                     $('#host-guest').removeClass('selected');
-                    alert('Thank you for your feedback. We will keep in touch with you.')
+
+                    $('#feedback-alert').css('visibility', 'visible');
+                    setInterval(function(){
+                        $('#feedback-alert').css('visibility', 'hidden');
+                    }, 3000);
                 }
             }
         );

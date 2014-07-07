@@ -125,7 +125,9 @@
             </div>
         </div>
 
+
         <div id="contact" class="col-xs-12 section4">
+            <div id="feedback-alert" class="alert alert-info">Thank you for your feedback. We will keep in touch with you.</div>
             <div class="arrow"></div>
             <div id="sabrus-contact-logo"></div>
             <div class="col-xs-10 text-right">
@@ -143,11 +145,7 @@
                     </div>
                 </div>
             </div>
-            {#{% for flashMessage in app.session.flashbag.get('notice') %}#}
-                {#<div class="flash-notice">#}
-                    {#{{ flashMessage }}#}
-                {#</div>#}
-            {#{% endfor %}#}
+
             <div id="modal-view" class="modal fade" data-url="{{ path('get_user_feedback') }}">
                 <div class="modal-dialog">
                     <div class="modal-content" >
