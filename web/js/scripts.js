@@ -18,7 +18,6 @@ var user_type = 0;
 $(function(){
     /*  Call the scrollspy */
     $('body').scrollspy({ target: '#mynav', offset: 400 })
-    $('body').data().scrollspy.process();
 
     /* Refresh the scrollspy */
     $('[data-spy="scroll"]').each(function () {
