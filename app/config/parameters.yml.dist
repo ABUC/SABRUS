@@ -2,8 +2,8 @@ parameters:
     database_driver:   pdo_mysql
     database_host:     127.0.0.1
     database_port:     ~
-    database_name:     symfony
-    database_user:     root
+    database_name:     sabrus_prod
+    database_user:     sabrus_prod
     database_password: ~
 
     mailer_transport:  smtp
@@ -12,7 +12,7 @@ parameters:
     mailer_password:   ~
 
     locale:            en
-    secret:            ThisTokenIsNotSoSecretChangeIt
+    secret:            KjklK0j20n479KoQdyMb229nI8hBda7103Bbad78b
 
     debug_toolbar:          true
     debug_redirects:        false
