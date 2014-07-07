@@ -52,17 +52,28 @@ class DefaultController extends Controller
         );
         */
 
-//        mail("aygonzalez@uci.cu", "Testting php mail function", "This is a test...");
+        $type = 'Guest';
+        if($userType[0] == 0) {
+            $type = 'Host';
+        } elseif($userType[0] == 2) {
+            $type = 'Host & Guest';
+        }
 
-//        /*
-//        $message = \Swift_Message::newInstance()
-//            ->setSubject('You have a new message from '.$username)
-//            ->setFrom('aygonzalez@uci.cu')
-//            ->setTo('aygonzalez@uci.cu')
-//            ->setBody('This is the body of the message...');
-//
-//        $info = $this->get('mailer')->send($message);
-//        */
+        $body = 'A new client has contacted Sabrus: ' . PHP_EOL;
+        $body .= "Email: $email\nName: $username\nFrom: {$userFrom[0]}\nType: $type";
+
+        $message = \Swift_Message::newInstance()
+            ->setSubject('SABRUS - A new message from ' . $username)
+            ->setFrom('info@sabrus.ch')
+            ->setTo('ptorres@abuc.ch')
+            ->setBody($body);
+
+        try {
+            $this->get('mailer')->send($message);
+        } catch (\Exception $e) {
+            // ignore SwiftMailer exceptions
+        }
+
         $response = array('code' => 200, 'success' => true);
         $response = json_encode($response);
         return new HttpFoundation\Response($response);
