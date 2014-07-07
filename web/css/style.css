@@ -29,6 +29,84 @@ body {
     max-width: 100%;
 }
 
+
+@keyframes change-header-up  {
+    from {
+        height: 100px;
+    }
+    to {
+        height: 180px;
+    }
+}
+
+@keyframes change-header-down  {
+    from {
+        height: 180px;
+    }
+    to {
+        height: 100px;
+    }
+}
+
+.animate-up {
+    -moz-animation-name: change-header-up;
+    -moz-animation-duration: 2s;
+
+    -webkit-animation-name: change-header-up;
+    -webkit-animation-duration: 2s;
+
+    -ms-animation-name: change-header-up;
+    -ms-animation-duration: 2s;
+
+    -o-animation-name: change-header-up;
+    -o-animation-duration: 2s;
+}
+
+.animate-down {
+    -moz-animation-name: change-header-down;
+    -moz-animation-duration: 2s;
+
+    -webkit-animation-name: change-header-down;
+    -webkit-animation-duration: 2s;
+
+    -ms-animation-name: change-header-down;
+    -ms-animation-duration: 2s;
+
+    -o-animation-name: change-header-down;
+    -o-animation-duration: 2s;
+}
+
+
+@keyframes animate-arrow {
+    from {
+        color: #B1B1A9;
+    }
+    to {
+        color: red;
+    }
+}
+
+.animated-arrow {
+    -moz-animation-name: animate-arrow;
+    -moz-animation-duration: 1.5s;
+    -moz-animation-iteration-count: infinite;
+
+    -webkit-animation-name: animate-arrow;
+    -webkit-animation-duration: 1.5s;
+    -webkit-animation-iteration-count: infinite;
+
+    -ms-animation-name: animate-arrow;
+    -ms-animation-duration: 1.5s;
+    -ms-animation-iteration-count: infinite;
+
+    -o-animation-name: animate-arrow;
+    -o-animation-duration: 1.5s;
+    -o-animation-iteration-count: infinite;
+
+    display: inline-block;
+    cursor: pointer;
+}
+
 .section2 {
     background: #ffffff;
     max-width: 100%;
@@ -153,6 +231,7 @@ body {
 
 #countdown-circle {
     background: url("../img/countdown-circle.png") no-repeat;
+    background-size: 100% 100%;
     width: 303px;
     height: 287px;
     max-width: 100%;
@@ -333,7 +412,7 @@ body {
 #our-service-text {
     text-align: left;
     margin-left: 10%;
-    margin-bottom: 5%;
+    margin-bottom: 3%;
     color: #EDEDED;
     font-size: 1.212121212121212em;
     font-family: "Yanone Kaffeesatz Thin";
@@ -505,7 +584,7 @@ body {
 
 #host, #guest, #host-guest{
     display: inline-block;
-    margin-left: 6%;
+    margin-left: 8%;
     margin-right: 6%;
 }
 

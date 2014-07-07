@@ -117,7 +117,6 @@ $(function(){
         user_type = 2;
     });
 
-
     /*  Post with AJAX user feedback in modal-view to DefaultController getUserFeedbackAction */
     $('#btn-save').click(function(){
 
