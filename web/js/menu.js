@@ -3,7 +3,7 @@
  */
 $(function(){
     $('a.smoothScroll').smoothScroll({
-        offset: 0,
+        offset: -120,
         scrollTarget: $(this).val()
     });
 
