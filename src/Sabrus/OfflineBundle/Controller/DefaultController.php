@@ -33,16 +33,16 @@ class DefaultController extends Controller
         $em->getRepository('OfflineBundle:UserFeedBack')
             ->AddUserFeedBack($userfeedback);
 
-
         $type = 'Guest';
-        if($userType[0] == 0) {
+
+        if($userType == 0) {
             $type = 'Host';
-        } elseif($userType[0] == 2) {
+        } elseif($userType == 2) {
             $type = 'Host & Guest';
         }
 
         $body = 'A new client has contacted Sabrus: ' . PHP_EOL;
-        $body .= "Email: $email\nName: $username\nFrom: {$userFrom[0]}\nType: $type";
+        $body .= "Email: $email\nName: $username\nFrom: $userFrom\nType: $type";
 
         $message = \Swift_Message::newInstance()
             ->setSubject('SABRUS - A new message from ' . $username)
