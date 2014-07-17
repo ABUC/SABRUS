@@ -232,8 +232,8 @@ body {
 #sabrus-contact-logo {
     background: transparent url("../img/sabrus-contact-logo.png") no-repeat center;
     background-size: contain;
-    margin-top: 2%;
-    margin-left: 10%;
+    margin-top: 5%;
+    margin-left: 15%;
     width: 139px;
     height: 54px;
     max-width: 100%;
@@ -244,36 +244,33 @@ body {
 }
 
 #contact-text {
-    width: 40%;
+    width: 80%;
     text-align: left;
+    margin-left: 15%;
+    margin-top: 5%;
     color: #B1B1A9;
-    font-size: 0.7em;
+    font-size: 1em;
     font-family: "Yanone Kaffeesatz Thin";
     vertical-align: top;
     display: inline-block;
 }
 
-.hp2{
-    color: #B1B1A9;
-    font-size: 0.3636363636363636em;
-    font-family: "Yanone Kaffeesatz Regular";
+#grouping-div {
+    width: 100%;
 }
 
-#contact-col {
-    margin-left: 10%;
-    text-align: left;
-    vertical-align: top;
-    display: inline-block;
+#input-email {
+    width: 70%;
+    float: left;
+}
+
+#btn-send {
+    width: 25%;
+    float: right;
 }
 
 #btn-send:focus {
     outline: 0;
-}
-
-.form-control {
-    width: 230px;
-    max-width: 100%;
-    margin-top: 8%;
 }
 
 #the-team-img {
@@ -395,6 +392,11 @@ body {
     -moz-transform: scale(1.3)
 }
 
+#guest-to-eat-col.active #guest-to-eat-img {
+    background: url('../img/guest-to-eat-big.png');
+    background-size: 100% 100%;
+}
+
 #guest-to-eat-col:hover #guest-to-eat-text {
     color: #040404;
 }
@@ -413,6 +415,11 @@ body {
     -moz-transform: scale(1.3)
 }
 
+#host-to-cook-col.active #host-to-cook-img {
+    background: url('../img/host-to-cook-big.png');
+    background-size: 100% 100%;
+}
+
 #host-to-cook-col:hover #host-to-cook-text {
     color: #040404;
 }
@@ -421,16 +428,19 @@ body {
     color: #040404;
 }
 
-
 #where-you-like-col:hover {
     zoom: 1.3;
     -moz-transform: scale(1.3)
 }
 
-
 #where-you-like-col.active {
     zoom: 1.3;
     -moz-transform: scale(1.3)
+}
+
+#where-you-like-col.active #where-you-like-img {
+    background: url('../img/where-you-like-big.png');
+    background-size: 100% 100%;
 }
 
 #where-you-like-col:hover #where-you-like-text {
@@ -441,78 +451,33 @@ body {
     color: #040404;
 }
 
-#top-bubbles {
-    background: url('../img/top-bubbles.png');
-    background-size: 100% 100%;
-    float: right;
-    width: 162px;
-    height: 89px;
-    margin-right: 12%;
-}
-
-#bottom-bubbles {
-    background: url('../img/bottom-bubbles.png');
-    background-size: 100% 100%;
-    float: right;
-    width: 140px;
-    height: 60px;
-    margin-right: 12%;
-}
-
-.modal-content {
-    color: #293E41;
-    text-align: center;
-    font-size: 0.3333333333333333em;
-    font-family: "Yanone Kaffeesatz Thin";
-}
-
-#modal-header-text {
-    margin-top: 3%;
-    margin-bottom: 2%;
-}
-
-
-#modal-header-text, #modal-footer-text {
-    margin-top: 1%;
-    margin-bottom: 3%;
-}
-
-.modal-text {
-    font-family: "Yanone Kaffeesatz Regular";
-}
-
-#where-you-from-text {
-    margin-top: 4%;
-}
-
-#where-you-from-div {
-    text-align: center;
-}
-
-#where-you-from-div {
-    width: 30%;
-    margin: 0 auto;
-    margin-top: -2%;
-    text-align: center;
-    vertical-align: top;
-}
-
 #host, #guest, #host-guest{
     display: inline-block;
-    margin-left: 8%;
-    margin-right: 6%;
-}
-
-#host.selected, #guest.selected, #host-guest.selected {
-    border: solid lightskyblue 2px;
+    margin-top: 2%;
 }
 
 #want-to-be-images {
     margin: 2% auto;
 }
 
-#host-img, #guest-img, #host-guest-img {
-    width: 80px;
+#host-img, #guest-img {
+    width: 70px;
+    height: 70px;
+    text-align: center;
+    margin: 0 auto;
+    background-size: 100% 100%;
+}
+
+#host-guest-img {
+    width: 104px;
+    height: 70px;
+    text-align: center;
+    margin: 0 auto;
+    background-size: 100% 100%;
+}
+
+#where-you-like {
+    width: 104px;
     height: 70px;
     text-align: center;
     margin: 0 auto;
@@ -531,11 +496,45 @@ body {
     background-image: url('../img/host-guest.png');
 }
 
-#want-to-be-text {
+#host.selected #host-img {
+    background-image: url('../img/host-active.png');
+}
+
+#guest.selected #guest-img {
+    background-image: url('../img/guest-active.png');
+}
+
+#host-guest.selected #host-guest-img {
+    background-image: url('../img/host-guest-active.png');
+}
+
+#contact-row {
+    width: 100%;
+}
+
+#contact-form {
+    width: 50%;
+    margin-left: 25%;
+}
+
+.contact-text {
+    font-family: "Yanone Kaffeesatz Light";
+    font-size: 0.3333333333333333em;
+    color: #B1B1A9;
+    text-align: center;
     margin-top: 5%;
 }
 
+.form-control {
+    margin-top: 5%;
+    border: none;
+    background:url('../img/input-text-background.png') no-repeat;
+    background-size: 100% 100%;
+}
+
 #btn-send {
+    margin-top: 5%;
+    margin-left: 2%;
     background-color: #85B231;
 }
 
@@ -560,7 +559,7 @@ li.divider {
     font-family: "Yanone Kaffeesatz Thin";
     width: 40%;
     margin-left: 30%;
-    margin-top: 1%;
+    margin-top: 2%;
     position: absolute;
     visibility: hidden;
 }
@@ -631,11 +630,7 @@ li.divider {
     #contact-text {
         width: 100%;
         margin-top: 4%;
-    }
-
-    #contact-col {
-        float: left;
-        margin: 4% auto;
+        margin-left: 5%;
     }
 }
 
@@ -683,12 +678,6 @@ li.divider {
         margin-left: 2%;
         margin-right: 2%;
         width: 100%;
-    }
-
-    #top-bubbles, #bottom-bubbles {
-        margin: 0 auto;
-        width: 80px;
-        height: 30px;
     }
 
     #guest-to-eat-img, #host-to-cook-img, #where-you-like-img {
@@ -757,9 +746,15 @@ li.divider {
         float: left;
     }
 
+    #contact-form {
+        width: 100%;
+        margin-left: 2%;
+    }
+
     #contact-text {
         width: 100%;
         margin-top: 4%;
+        margin-left: 5%;
         font-size: 0.5em;
     }
 }
