@@ -137,45 +137,45 @@
                 </div>
                 <div id="contact-col">
                     <div class="hp2">Contact us</div>
-                    <div id="contact-form" class="form" role="form">
+                    <div id="contact-form" class="form">
                         <input type="text" class="form-control" id="inputName" name="username" placeholder="Name">
                         <input type="email" class="form-control" id="inputEmail" name="email" placeholder="Email">
                         <input type="submit" id="btn-send" class="btn btn-success" value="Send" data-toggle="modal" href="#modal-view">
-                        {#<p style="font-size: 14px; color: #ffffff"> {% if info > 0 %} SUCCESS {% else %} FAILURE {% endif %} sending message </p>#}
                     </div>
+                    {#<p style="font-size: 14px; color: #ffffff"> {% if info > 0 %} SUCCESS {% else %} FAILURE {% endif %} sending message </p>#}
                 </div>
             </div>
-
-            <div id="modal-view" class="modal fade" data-url="{{ path('get_user_feedback') }}">
-                <div class="modal-dialog">
-                    <div class="modal-content" >
-                        <div id="modal-header-text">We want to invite you to be part of the Sabrus Community!</div>
-                        <li class="divider"></li>
-                        <div id="where-you-from-text" class="modal-text">Where are you from?</div>
-                        <div id="where-you-from-div">
-                            <input type="text" class="form-control" id="where-you-from-input" name="where-you-from-input">
-                        </div>
-                        <div id="want-to-be-text" class="modal-text">Do you want to be</div>
-                        <div id="want-to-be-images">
-                            <div id="host">
-                                <div id="host-img"></div>
-                                <div>Just a Host</div>
-                            </div>
-                            <div id="guest">
-                                <div id="guest-img"></div>
-                                <div>Just a Guest</div>
-                            </div>
-                            <div id="host-guest">
-                                <div id="host-guest-img"></div>
-                                <div>Host & Guest</div>
-                            </div>
-                        </div>
-                        <input type="submit" id="btn-save" class="btn btn-success" value="Save">
-                        <li class="divider"></li>
-                        <div id="modal-footer-text">Thank you for your interest in Sabrus! We will keep in touch with you.</div>
-                    </div><!-- /.modal-content -->
-                </div><!-- /.modal-dialog -->
-            </div><!-- /.modal -->
         </div>
+
+        <div id="modal-view" class="modal fade" data-url="{{ path('get_user_feedback') }}">
+            <div class="modal-dialog">
+                <div class="modal-content" >
+                    <div id="modal-header-text">We want to invite you to be part of the Sabrus Community!</div>
+                    <li class="divider"></li>
+                    <div id="where-you-from-text" class="modal-text">Where are you from?</div>
+                    <div id="where-you-from-div">
+                        <input type="text" class="form-control" id="where-you-from-input" name="where-you-from-input">
+                    </div>
+                    <div id="want-to-be-text" class="modal-text">Do you want to be</div>
+                    <div id="want-to-be-images">
+                        <div id="host">
+                            <div id="host-img"></div>
+                            <div>Just a Host</div>
+                        </div>
+                        <div id="guest">
+                            <div id="guest-img"></div>
+                            <div>Just a Guest</div>
+                        </div>
+                        <div id="host-guest">
+                            <div id="host-guest-img"></div>
+                            <div>Host & Guest</div>
+                        </div>
+                    </div>
+                    <input type="submit" id="btn-save" class="btn btn-success" value="Save">
+                    <li class="divider"></li>
+                    <div id="modal-footer-text">Thank you for your interest in Sabrus! We will keep in touch with you.</div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
     </div>
 {% endblock %}
