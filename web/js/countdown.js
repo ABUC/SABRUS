@@ -6,7 +6,7 @@
  **********************************/
 $(function(){
     $(".countdown").jCounter({
-        date: "01 december 2014 12:00:00", //format: DD month YYYY HH:MM:SS
+        date: "01 february 2015 12:00:00", //format: DD month YYYY HH:MM:SS
         timezone: "Europe/Bucharest",
         format: "dd:hh:mm:ss",
         twoDigits: 'on',
