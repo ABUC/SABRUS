@@ -118,12 +118,12 @@ $(function(){
     });
 
     /*  Post with AJAX user feedback in modal-view to DefaultController getUserFeedbackAction */
-    $('#btn-save').click(function(){
+    $('#btn-send').click(function(){
 
-        var url = $('#modal-view').attr('data-url');
-        var user_from = $('#where-you-from-input').val();
-        var username = $('#inputName').val();
-        var email = $('#inputEmail').val();
+        var url = $('#contact-form').attr('data-url');
+        var username = $('#input-name').val();
+        var user_from = $('#where-you-from').val();
+        var email = $('#input-email').val();
 
         $.post(url,
             {
@@ -135,15 +135,15 @@ $(function(){
             function(response) {
                 if(response.code == 200){
                     //do something
-                    $('#modal-view').modal('hide');
-
-                    $('#where-you-from-input').val('');
-                    $('#inputName').val('');
-                    $('#inputEmail').val('');
+                    $('#where-you-from').val('');
+                    $('#input-name').val('');
+                    $('#input-email').val('');
 
                     $('#host').removeClass('selected');
                     $('#guest').removeClass('selected');
                     $('#host-guest').removeClass('selected');
+
+                    $('#host').addClass('selected');
 
                     $('#feedback-alert').css('visibility', 'visible');
                     setInterval(function(){
